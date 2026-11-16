@@ -1,1 +1,46 @@
-<!doctype html><n<html lang="en"><head><meta charset="utf-8"><title>Taskflow</title></head><body>Taskflow website setup in progress.</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111827"><meta name="description" content="A clean, responsive task tracker to organize work and stay focused.">
+<title>Taskflow — Task Tracker</title><link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="#"><span class="brand-mark">✓</span><span>taskflow</span></a>
+  <div class="workspace-label">WORKSPACE</div>
+  <nav class="side-nav">
+    <button class="nav-item active" data-view="all"><span>▦</span> All tasks <b id="nav-all">0</b></button>
+    <button class="nav-item" data-view="today"><span>◷</span> Today <b id="nav-today">0</b></button>
+    <button class="nav-item" data-view="upcoming"><span>⌁</span> Upcoming</button>
+    <button class="nav-item" data-view="completed"><span>✓</span> Completed</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="tip-icon">✦</div><strong>Make space for focus.</strong><p>Small steps, meaningful progress.</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><div class="eyebrow">YOUR WORKSPACE</div><h1 id="page-title">All tasks</h1></div><div class="top-actions"><button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">◐</button><div class="avatar">J</div></div></header>
+<section class="welcome"><div><div class="date-line" id="today-date"></div><h2>Make today count<span>.</span></h2><p>One task at a time. You're doing great.</p></div><button class="primary-btn" id="add-task"><span>＋</span> Add task</button></section>
+<section class="stats">
+ <article class="stat-card"><div class="stat-top"><span>Total tasks</span><span class="stat-symbol purple">▦</span></div><strong id="total-count">0</strong><small>Across your workspace</small></article>
+ <article class="stat-card"><div class="stat-top"><span>In progress</span><span class="stat-symbol blue">◷</span></div><strong id="progress-count">0</strong><small>Keep the momentum</small></article>
+ <article class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-symbol green">✓</span></div><strong id="done-count">0</strong><small>Look how far you've come</small></article>
+ <article class="stat-card"><div class="stat-top"><span>Pending</span><span class="stat-symbol orange">◌</span></div><strong id="pending-count">0</strong><small>Ready when you are</small></article>
+</section>
+<section class="task-panel">
+ <div class="panel-head"><div><h3>Task overview</h3><p>Manage and prioritize your work</p></div><div class="filters"><label class="search-box">⌕ <input id="search" type="search" placeholder="Search tasks..."></label><select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option>Pending</option><option>In Progress</option><option>Completed</option></select></div></div>
+ <div id="task-list" class="task-list"></div>
+ <div class="panel-foot"><span id="showing-count">Showing 0 tasks</span><button class="text-btn" id="clear-completed">Clear completed</button></div>
+</section>
+<footer>Made for a more focused day <span>✦</span></footer>
+</main>
+</div>
+<dialog id="task-dialog"><form method="dialog" id="task-form"><div class="modal-head"><div><div class="eyebrow">TASK DETAILS</div><h3 id="modal-title">Create a task</h3></div><button class="icon-btn" value="cancel" aria-label="Close">×</button></div>
+<label class="form-label">Task title<input id="task-title" maxlength="150" required placeholder="What needs to get done?"></label>
+<label class="form-label">Description <span class="optional">Optional</span><textarea id="task-description" rows="3" placeholder="Add a few details..."></textarea></label>
+<div class="form-row"><label class="form-label">Status<select id="task-status"><option>Pending</option><option>In Progress</option><option>Completed</option></select></label><label class="form-label">Due date<input id="task-due" type="date"></label></div>
+<div class="modal-actions"><button class="secondary-btn" value="cancel">Cancel</button><button class="primary-btn" id="save-task" value="default">Save task</button></div>
+</form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script src="assets/app.js"></script>
+</body></html>
